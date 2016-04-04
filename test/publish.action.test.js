@@ -6,7 +6,7 @@ import publishActionsMiddleware from '../index';
 describe('publishActionsMiddleware middleware', () => {
 
     /**
-     *
+     * Live test with PubNub keys for testing
      * @type {string[]}
      */
     const testKeys = ['pub-c-6892057c-e765-4d44-b5f9-26220865480d', 'sub-c-6c1c3c02-fa52-11e5-9086-02ee2ddab7fe'];
