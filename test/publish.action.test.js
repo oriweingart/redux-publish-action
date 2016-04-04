@@ -21,6 +21,12 @@ describe('publishActionsMiddleware middleware', () => {
             text: "Color TV"
         }
     };
+    const mockRegularAction = {
+        type: 'REGULAR_ADD_ITEM',
+        payload: {
+            text: "Color TV"
+        }
+    };
 
     describe('test publish store with one sender, one receiver and one regular user', () => {
         const senderStore    = createMockStore('sender')({});
@@ -54,11 +60,21 @@ describe('publishActionsMiddleware middleware', () => {
             newReceiverStore.dispatch(mockReceiverAction);
             setTimeout(() => {
                 let newReceiverActions = newReceiverStore.getActions();
-                chai.assert.strictEqual(newReceiverActions.length,      sendersActions.length);
-                chai.assert.strictEqual(newReceiverActions[0].force,    true);
+                chai.assert.strictEqual(newReceiverActions.length, sendersActions.length);
+                chai.assert.strictEqual(newReceiverActions[0].force, true);
                 done();
             }, 4000)
         });
 
+        it('should make sure regular user actions are the same', (done)  => {
+            senderStore.dispatch(mockSenderAction);
+            regulatStore.dispatch(mockRegularAction);
+            setTimeout(() => {
+                let regularActions = regulatStore.getActions();
+                chai.assert.strictEqual(regularActions.length, 1);
+                chai.assert.strictEqual(JSON.stringify(regularActions[0]), JSON.stringify(mockRegularAction));
+                done();
+            }, 4000)
+        });
     });
 });
