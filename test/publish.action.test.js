@@ -45,5 +45,20 @@ describe('publishActionsMiddleware middleware', () => {
                 done();
             }, 2000)
         });
+
+        it('should send all senders actions when a new receiver join', (done)  => {
+            senderStore.dispatch(mockSenderAction);
+            senderStore.dispatch(mockSenderAction);
+            let sendersActions = senderStore.getActions();
+            const newReceiverStore  = createMockStore('receiver')({});
+            newReceiverStore.dispatch(mockReceiverAction);
+            setTimeout(() => {
+                let newReceiverActions = newReceiverStore.getActions();
+                chai.assert.strictEqual(newReceiverActions.length,      sendersActions.length);
+                chai.assert.strictEqual(newReceiverActions[0].force,    true);
+                done();
+            }, 4000)
+        });
+
     });
 });
