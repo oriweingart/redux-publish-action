@@ -1,0 +1,22 @@
+{
+  "camelcase": true,
+  "immed": true,
+  "latedef": false,
+  "newcap": true,
+  "nonew": true,
+  "plusplus": true,
+  "quotmark": "single",
+  "varstmt": true,
+  "esnext": true,
+  "browser": false,
+  "devel": false,
+  "node": true,
+  "globals"   : {
+     "describe"   : false,
+     "it"         : false,
+     "before"     : false,
+     "beforeEach" : false,
+     "after"      : false,
+     "afterEach"  : false
+  }
+}
