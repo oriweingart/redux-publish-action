@@ -54,7 +54,7 @@ describe('publishActionsMiddleware middleware', () => {
                 chai.assert.strictEqual(actions.length, 1);
                 chai.assert.strictEqual(actions[0].type, mockSenderAction.type);
                 done();
-            }, 2000)
+            }, 4000)
         });
 
         it('should send all senders actions when a new receiver join', (done) => {
@@ -66,9 +66,9 @@ describe('publishActionsMiddleware middleware', () => {
             setTimeout(() => {
                 let newReceiverActions = newReceiverStore.getActions();
                 chai.assert.strictEqual(newReceiverActions.length, sendersActions.length);
-                chai.assert.strictEqual(newReceiverActions[0].force, true);
+                newReceiverActions.map(action => chai.assert.strictEqual(action.force, true))
                 done();
-            }, 4000)
+            }, 6000)
         });
 
         it('should make sure regular user wont receive senders actions', (done) => {
