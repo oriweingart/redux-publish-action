@@ -8,7 +8,7 @@
   "quotmark": "single",
   "varstmt": true,
   "esnext": true,
-  "browser": false,
+  "browser": true,
   "devel": false,
   "node": true,
   "globals"   : {

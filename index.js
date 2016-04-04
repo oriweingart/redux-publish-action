@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 import PUBNUB from 'pubnub';
 
@@ -47,8 +47,8 @@ const sendActionMiddleware = (pubnub) => {
             pubActions.add(action).sendAll();
             return result;
         };
-    }
-}
+    };
+};
 /**
  * Middleware that:
  *      1. Block action from current user
@@ -67,16 +67,16 @@ const receiveActionMiddleware = (pubnub) => {
                     if (shouldAddAction(actionObj)) {
                         addAction(actionObj);
                     }
-                })
+                });
             }
         }
-    })
+    });
     const shouldAddAction = message => message && message.id > curActionId;
     const addAction       = message => {
         message.action.force = true;
         mainStore.dispatch(message.action);
         curActionId = message.id;
-    }
+    };
     return store => {
         mainStore = mainStore || store; // init main store
         return next => action => {
@@ -86,8 +86,8 @@ const receiveActionMiddleware = (pubnub) => {
                 return next(action);
             }
         };
-    }
-}
+    };
+};
 /**
  * Middleware that doesnt do anything (in case of regular user)
  * @returns {Function}
@@ -98,8 +98,8 @@ const farwardNextAction = () => {
             let result = next(action);
             return result;
         };
-    }
-}
+    };
+};
 /**
  * Helper to extract query param from url
  * @param field
@@ -107,7 +107,7 @@ const farwardNextAction = () => {
  * @returns {null}
  */
 const getQueryString = function (field) {
-    let href        = window.location.href,
+    let href        = window ? window.location.href : '',
         reg         = new RegExp('[?&]' + field + '=([^&#]*)', 'i'),
         string      = reg.exec(href);
     return string ? string[1] : null;
@@ -123,9 +123,9 @@ const isSender = (userType) => userType ? userType == 'sender' : getQueryString(
  */
 const isReceiver = (userType) => userType ? userType == 'receiver' : getQueryString('receiver');
 /**
- * Return the middleware based on the url query param:
- *  url?sender=true -> will send actions to others
- *  url?receiver=true -> will block interaction and get actions from sender
+ * Return the middleware based on the url query param or userType:
+ *  url?sender=true || userType='sender' -> will send actions to others
+ *  url?receiver=true  || userType='receiver'-> will block interaction and get actions from sender
  *  otherwise -> won't do anything
  * @returns {Function}
  */
