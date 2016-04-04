@@ -4,7 +4,12 @@ import publishActionsMiddleware from '../index';
 
 
 describe('publishActionsMiddleware middleware', () => {
-    const test_keys           = ['pub-c-6892057c-e765-4d44-b5f9-26220865480d', 'sub-c-6c1c3c02-fa52-11e5-9086-02ee2ddab7fe'];
+
+    /**
+     *
+     * @type {string[]}
+     */
+    const test_keys = ['pub-c-6892057c-e765-4d44-b5f9-26220865480d', 'sub-c-6c1c3c02-fa52-11e5-9086-02ee2ddab7fe'];
     const createMockStore = (userType) => {
         const middlewares = [publishActionsMiddleware(...test_keys, userType)];
         return configureStore(middlewares);
@@ -29,34 +34,34 @@ describe('publishActionsMiddleware middleware', () => {
     };
 
     describe('test publish store with one sender, one receiver and one regular user', () => {
-        const senderStore    = createMockStore('sender')({});
-        const receiverStore  = createMockStore('receiver')({});
-        const regulatStore   = createMockStore('none')({});
+        const senderStore = createMockStore('sender')({});
+        const receiverStore = createMockStore('receiver')({});
+        const regulatStore = createMockStore('none')({});
 
 
-        it('should block receiver from dispatching actions', ()  => {
+        it('should block receiver from dispatching actions', () => {
             receiverStore.dispatch(mockReceiverAction);
             const actions = receiverStore.getActions();
             chai.assert.strictEqual(actions.length, 0);
         });
 
-        it('should send senders action to receiver ', (done)  => {
+        it('should send senders action to receiver ', (done) => {
             senderStore.dispatch(mockSenderAction);
             let actions = receiverStore.getActions();
             chai.assert.strictEqual(actions.length, 0);
             setTimeout(() => {
                 actions = receiverStore.getActions();
                 chai.assert.strictEqual(actions.length, 1);
-                chai.assert.strictEqual(actions[0].force, true);
+                chai.assert.strictEqual(actions[0].type, mockSenderAction.type);
                 done();
             }, 2000)
         });
 
-        it('should send all senders actions when a new receiver join', (done)  => {
+        it('should send all senders actions when a new receiver join', (done) => {
             senderStore.dispatch(mockSenderAction);
             senderStore.dispatch(mockSenderAction);
             let sendersActions = senderStore.getActions();
-            const newReceiverStore  = createMockStore('receiver')({});
+            const newReceiverStore = createMockStore('receiver')({});
             newReceiverStore.dispatch(mockReceiverAction);
             setTimeout(() => {
                 let newReceiverActions = newReceiverStore.getActions();
@@ -66,7 +71,7 @@ describe('publishActionsMiddleware middleware', () => {
             }, 4000)
         });
 
-        it('should make sure regular user actions are the same', (done)  => {
+        it('should make sure regular user wont receive senders actions', (done) => {
             senderStore.dispatch(mockSenderAction);
             regulatStore.dispatch(mockRegularAction);
             setTimeout(() => {
