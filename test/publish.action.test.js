@@ -9,9 +9,9 @@ describe('publishActionsMiddleware middleware', () => {
      *
      * @type {string[]}
      */
-    const test_keys = ['pub-c-6892057c-e765-4d44-b5f9-26220865480d', 'sub-c-6c1c3c02-fa52-11e5-9086-02ee2ddab7fe'];
+    const testKeys = ['pub-c-6892057c-e765-4d44-b5f9-26220865480d', 'sub-c-6c1c3c02-fa52-11e5-9086-02ee2ddab7fe'];
     const createMockStore = (userType) => {
-        const middlewares = [publishActionsMiddleware(...test_keys, userType)];
+        const middlewares = [publishActionsMiddleware(...testKeys, userType)];
         return configureStore(middlewares);
     }
     const mockSenderAction = {
