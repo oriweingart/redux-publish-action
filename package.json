@@ -22,7 +22,7 @@
   "keywords": [
     "redux",
     "middleware",
-    "middlewares",
+    "redux-middleware",
     "pubsub",
     "publish"
   ],
