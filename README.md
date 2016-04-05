@@ -11,16 +11,16 @@ import publishAction from 'redux-publish-action';
 // Add PubNub publish and subscribe keys
 let publishActionMiddleware = publishAction('pub-key-123', 'sub-key-123');
 const store = createStore(
-  appReducer,
+  yourApp,
   applyMiddleware(publishActionMiddleware)
 );
 ```
 For user that sends - add ?sender=true to the application url
-```js
+```bash
 http://your.app.com?sender=true
 ```
 For users that receive the intercations from the sender - add ?receiver=true to the application url
-```js
+```bash
 http://your.app.com?receiver=true
 ```
 
