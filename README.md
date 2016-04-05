@@ -2,6 +2,10 @@
 
 Redux [middleware](http://redux.js.org/docs/advanced/Middleware.html) for simulating user's interaction in other user's browser using [PbNub] (https://www.pubnub.com).
 
+Using this [middleware](http://redux.js.org/docs/advanced/Middleware.html) you can see what your users see in their application or you can show them what you see on your end.
+Useful for demos and debug sessions.
+
+
 ## Usage
 
 ```js
