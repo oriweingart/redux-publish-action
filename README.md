@@ -19,7 +19,7 @@ const store = createStore(
   applyMiddleware(publishActionMiddleware)
 );
 ```
-For user that sends - add ?sender=true to the application url
+For user that present his interaction - add ?sender=true to the application url
 ```bash
 http://your.app.com?sender=true
 ```
