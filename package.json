@@ -1,6 +1,6 @@
 {
   "name": "redux-publish-action",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Publish redux actions using PubNub",
   "main": "dist/index.js",
   "directories": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:oriweingart/socket_over_redis.git"
+    "url": "git@github.com:oriweingart/redux-publish-action.git"
   },
   "keywords": [
     "redux",
