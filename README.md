@@ -24,5 +24,10 @@ For users that receive the intercations from the sender - add ?receiver=true to 
 http://your.app.com?receiver=true
 ```
 
+## Installation
+
+```bash
+$ npm install redux-publish-action
+```
 
 under development
