@@ -40,5 +40,5 @@ $ npm install redux-publish-action
 
 ## License
 
-MIT.
+Apache.
 
