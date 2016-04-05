@@ -1,6 +1,6 @@
 {
   "name": "redux-publish-action",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Publish redux actions using PubNub",
   "main": "dist/index.js",
   "directories": {
