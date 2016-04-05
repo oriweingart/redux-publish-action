@@ -34,4 +34,11 @@ http://your.app.com?receiver=true
 $ npm install redux-publish-action
 ```
 
-under development
+## Requirements
+
+[PbNub] (https://www.pubnub.com) account with publish and subscribe keys. 
+
+## License
+
+MIT.
+
