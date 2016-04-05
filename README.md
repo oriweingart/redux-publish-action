@@ -6,22 +6,22 @@ Redux [middleware](http://redux.js.org/docs/advanced/Middleware.html) for simula
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
-import publishActions from 'redux-publish-action';
+import publishAction from 'redux-publish-action';
 
 // Add PubNub publish and subscribe keys
-let publishActionMiddleware = publishAction('pub-key-123', 'sub-key-123', 'sender');
+let publishActionMiddleware = publishAction('pub-key-123', 'sub-key-123');
 const store = createStore(
   appReducer,
   applyMiddleware(publishActionMiddleware)
 );
 ```
-For user that sends it's intercations to other users ('sender')
+For user that sends - add ?sender=true to the application url
 ```js
-let publishActionMiddleware = publishAction('pub-key-123', 'sub-key-123', 'sender');
+http://your.app.com?sender=true
 ```
-For users that receive the intercations from the sender ('receiver')
+For users that receive the intercations from the sender - add ?receiver=true to the application url
 ```js
-let publishActionMiddleware = publishAction('pub-key-123', 'sub-key-123', 'receiver');
+http://your.app.com?receiver=true
 ```
 
 
