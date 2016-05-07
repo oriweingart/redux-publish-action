@@ -9,6 +9,12 @@
   "files": [
     "dist"
   ],
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
   "scripts": {
     "build": "npm run build:commonjs",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel index.js --out-dir dist",
