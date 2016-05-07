@@ -44,15 +44,18 @@ $ npm install redux-publish-action
 todos app from [Redux examples page](https://github.com/reactjs/redux/tree/master/examples) with ```redux-publish-action```.
 
 ```bash
+$ git clone git@github.com:oriweingart/redux-publish-action.git
+$ cd redux-publish-action
+$ npm install
 $ cd examples/todos
 $ npm install
 $ npm start
 ```
-open the sender user on
+open the sender browser on
 ```bash
 http://localhost:3000?sender=true
 ```
-open the receiver user
+open the receiver browser on
 ```bash
 http://localhost:3000?receiver=true
 ```
