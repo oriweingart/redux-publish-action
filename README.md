@@ -23,7 +23,7 @@ For user that present his interaction - add ?sender=true to the application url
 ```bash
 http://your.app.com?sender=true
 ```
-For users that receive the intercations from the sender - add ?receiver=true to the application url
+For users that receive the interactions from the sender - add ?receiver=true to the application url
 ```bash
 http://your.app.com?receiver=true
 ```
@@ -36,9 +36,29 @@ $ npm install redux-publish-action
 
 ## Requirements
 
-[PbNub] (https://www.pubnub.com) account with publish and subscribe keys. 
+[PbNub] (https://www.pubnub.com) account with publish and subscribe keys.
+
+
+## Examples
+
+todos app from [Redux examples page](https://github.com/reactjs/redux/tree/master/examples) with ```redux-publish-action```.
+
+```bash
+$ cd examples/todos
+$ npm install
+$ npm start
+```
+open the sender user on
+```bash
+http://localhost:3000?sender=true
+```
+open the receiver user
+```bash
+http://localhost:3000?receiver=true
+```
+All ui interactions performed by the sender will be displayed in the receiver user browser.
+
 
 ## License
 
 Apache.
-
