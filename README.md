@@ -1,6 +1,7 @@
 # redux-publish-action [![Circle CI](https://circleci.com/gh/oriweingart/redux-publish-action/tree/master.svg?style=shield)](https://circleci.com/gh/oriweingart/redux-publish-action/tree/master)
 
-Redux [middleware](http://redux.js.org/docs/advanced/Middleware.html) for simulating user's interaction in other user's browser using [PbNub] (https://www.pubnub.com).
+Redux [middleware](http://redux.js.org/docs/advanced/Middleware.html) 
+for showing another user's interaction with your application in your browser using [PbNub] (https://www.pubnub.com).
 
 Using this [middleware](http://redux.js.org/docs/advanced/Middleware.html) you can see what your users see in their application or you can show them what you see on your end.
 Useful for demos and debug sessions.
@@ -19,11 +20,11 @@ const store = createStore(
   applyMiddleware(publishActionMiddleware)
 );
 ```
-For user that present his interaction - add ?sender=true to the application url
+Users wishing to show their interactions with the application should add ?sender=true to the application url
 ```bash
 http://your.app.com?sender=true
 ```
-For users that receive the interactions from the sender - add ?receiver=true to the application url
+Users wishing to see another user's interactions with the application should add add ?receiver=true to the application url
 ```bash
 http://your.app.com?receiver=true
 ```
@@ -51,15 +52,15 @@ $ cd examples/todos
 $ npm install
 $ npm start
 ```
-open the sender browser on
+Open the sender browser on
 ```bash
 http://localhost:3000?sender=true
 ```
-open the receiver browser on
+Open the receiver browser on
 ```bash
 http://localhost:3000?receiver=true
 ```
-All ui interactions performed by the sender will be displayed in the receiver user browser.
+All UI interactions performed by the sender will be displayed in the receiver's browser.
 
 
 ## License
