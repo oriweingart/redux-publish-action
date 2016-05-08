@@ -1,7 +1,7 @@
 # redux-publish-action [![Circle CI](https://circleci.com/gh/oriweingart/redux-publish-action/tree/master.svg?style=shield)](https://circleci.com/gh/oriweingart/redux-publish-action/tree/master)
 
 Redux [middleware](http://redux.js.org/docs/advanced/Middleware.html) 
-for showing another user's interaction with your application in your browser using [PbNub] (https://www.pubnub.com).
+for showing another user's interaction with your application in your browser using [PubNub] (https://www.pubnub.com).
 
 Using this [middleware](http://redux.js.org/docs/advanced/Middleware.html) you can see what your users see in their application or you can show them what you see on your end.
 Useful for demos and debug sessions.
